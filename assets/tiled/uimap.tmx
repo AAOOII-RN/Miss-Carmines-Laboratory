@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="800" height="450" tilewidth="1" tileheight="1" infinite="0" nextlayerid="3" nextobjectid="3">
+ <editorsettings>
+  <export target="uimap.lua" format="lua"/>
+ </editorsettings>
+ <objectgroup id="2" name="Blank">
+  <properties>
+   <property name="base_color" value="peach1"/>
+   <property name="design_color" value="brown1"/>
+  </properties>
+  <object id="1" name="Button" type="ButtonGoto" x="278" y="182" width="202" height="121">
+   <properties>
+    <property name="color" value=""/>
+    <property name="goto" value="Blank"/>
+    <property name="icon" value=""/>
+    <property name="roundness" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="2" name="Display" type="Placeholder" x="40" y="40" width="121" height="121">
+   <properties>
+    <property name="color" value=""/>
+    <property name="icon" value=""/>
+    <property name="roundness" type="int" value="16"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
