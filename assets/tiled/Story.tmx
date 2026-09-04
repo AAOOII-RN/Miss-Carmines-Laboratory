@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="800" height="450" tilewidth="1" tileheight="1" infinite="0" nextlayerid="9" nextobjectid="11">
+ <editorsettings>
+  <export target="Story.lua" format="lua"/>
+ </editorsettings>
+ <group id="4" name="Dining Room">
+  <objectgroup id="5" name="Scene 1">
+   <properties>
+    <property name="Background" value="Laboratory"/>
+    <property name="Bg offset" type="list">
+     <item type="int" value="0"/>
+     <item type="int" value="0"/>
+    </property>
+    <property name="Bg scale" type="list">
+     <item type="int" value="0"/>
+     <item type="int" value="0"/>
+    </property>
+   </properties>
+   <object id="1" name="Speaker" x="280" y="304" width="240" height="24">
+    <text fontfamily="Yeseva One" pixelsize="21" wrap="1" color="#ff5757" halign="center">Miss Carmine</text>
+   </object>
+   <object id="6" name="Dialogue" x="67" y="338" width="664" height="86">
+    <text fontfamily="Yeseva One" pixelsize="12" wrap="1" color="#ffffff" halign="center">&quot;If you lived long enough, stayed steady long enough, and honestly answered my check-ups, I'll say your name, my love.&quot;</text>
+   </object>
+   <object id="7" name="Line" x="400" y="332">
+    <point/>
+   </object>
+  </objectgroup>
+ </group>
+ <group id="7" name="Introduction">
+  <objectgroup id="8" name="Scene 1">
+   <properties>
+    <property name="Background" value="Laboratory"/>
+    <property name="Bg offset" type="list">
+     <item type="int" value="0"/>
+     <item type="int" value="0"/>
+    </property>
+    <property name="Bg scale" type="list">
+     <item type="int" value="0"/>
+     <item type="int" value="0"/>
+    </property>
+   </properties>
+   <object id="8" name="Speaker" x="280" y="304" width="240" height="24">
+    <text fontfamily="Yeseva One" pixelsize="21" wrap="1" color="#ff5757" halign="center">Miss Carmine</text>
+   </object>
+   <object id="9" name="Dialogue" x="67" y="338" width="664" height="86">
+    <text fontfamily="Yeseva One" pixelsize="12" wrap="1" color="#ffffff" halign="center">&quot;If you lived long enough, stayed steady long enough, and honestly answered my check-ups, I'll say your name, my love.&quot;</text>
+   </object>
+   <object id="10" name="Line" x="400" y="332">
+    <point/>
+   </object>
+  </objectgroup>
+ </group>
+ <group id="6" name="Main Menu" visible="0">
+  <objectgroup id="2" name="Main Menu">
+   <properties>
+    <property name="Background" value=""/>
+    <property name="Bg offset" type="list">
+     <item type="int" value="0"/>
+     <item type="int" value="0"/>
+    </property>
+    <property name="Bg scale" type="list">
+     <item type="int" value="0"/>
+     <item type="int" value="0"/>
+    </property>
+   </properties>
+   <object id="2" name="Test Button" type="ButtonGoto" x="305" y="167" width="190" height="116">
+    <properties>
+     <property name="color" value="red"/>
+     <property name="goto" value="game"/>
+     <property name="icon" value=""/>
+     <property name="roundness" type="int" value="16"/>
+    </properties>
+   </object>
+   <object id="3" x="305" y="167" width="190" height="55">
+    <text fontfamily="Yeseva One" pixelsize="18" wrap="1" halign="center">00000000000000000</text>
+   </object>
+  </objectgroup>
+ </group>
+</map>

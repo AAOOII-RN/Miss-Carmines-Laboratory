@@ -1,0 +1,73 @@
+{
+    "activeFile": "Story.tmx",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "C:/Users/aaooi/Documents/Lasagna/LOVE2D/COLOROSO/assets/tiled/ui-map.tmx": {
+            "scale": 3.5625,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 425.1228070175438,
+                "y": 336.140350877193
+            }
+        },
+        "Story.tmx": {
+            "expandedGroupLayers": [
+                6,
+                7,
+                4
+            ],
+            "expandedObjectLayers": [
+                6,
+                5,
+                2,
+                4
+            ],
+            "scale": 2,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 332.25,
+                "y": 241.5
+            }
+        },
+        "introduction.tmx": {
+            "expandedObjectLayers": [
+                2
+            ],
+            "scale": 1,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 592.5,
+                "y": 205.5
+            }
+        },
+        "main-menu.tmx": {
+            "scale": 3.5625,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 400.140350877193,
+                "y": 224.98245614035085
+            }
+        }
+    },
+    "last.exportedFilePath": "C:/Users/aaooi/Documents/Lasagna/LOVE2D/Miss-Carmines-Laboratory/assets/tiled",
+    "map.height": 450,
+    "map.lastUsedExportFilter": "Lua files (*.lua)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 1,
+    "map.tileWidth": 1,
+    "map.width": 800,
+    "openFiles": [
+        "Story.tmx"
+    ],
+    "project": "carmine.tiled-project",
+    "property.type": "list",
+    "recentFiles": [
+        "Story.tmx",
+        "C:/Users/aaooi/Documents/Lasagna/LOVE2D/COLOROSO/assets/tiled/ui-map.tmx",
+        "main-menu.tmx",
+        "introduction.tmx"
+    ],
+    "textEdit.monospace": false
+}

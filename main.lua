@@ -1,6 +1,5 @@
 function love.load()
 	print("Game Starting...")
-	love.graphics.setDefaultFilter("nearest")
 	Font = love.graphics.setNewFont("assets/fonts/font.ttf", 100)
 	Ww, Wh = love.graphics.getDimensions()
 	Ticker = 0
@@ -14,14 +13,22 @@ function love.load()
 	-- classes
 	Ui = require("lib.classes.ui-handler")()
 
+	-- Story
+	Chapter = "Dining Room"
+	Scene = "Scene 1"
+
 	-- states
 	OnState = "Blank"
 	Sm:add("Blank", require("states.blank"))
 	Sm:switch(OnState)
 
 	-- images
-	ShowBg = ""
-	Background = {}
+	local bg_path = "assets/img/Background/"
+	Gradient = love.graphics.newImage("assets/img/gradient.png")
+	Background = {
+		["Bedroom"] = love.graphics.newImage(bg_path .. "Bedroom.png"),
+		["Laboratory"] = love.graphics.newImage(bg_path .. "Laboratory.png"),
+	}
 end
 
 function Switch()
@@ -29,9 +36,10 @@ function Switch()
 	for _, obj in pairs(Btnui.buttons) do
 		obj.sleep = true
 	end
-	for _, obj in pairs(Ui.layerObj[OnState]) do
-		if Btnui.buttons[OnState .. "-" .. obj.name] then
-			Btnui.buttons[OnState .. "-" .. obj.name].sleep = false
+	print(Ui.scenes[Chapter][Scene].objects)
+	for _, obj in pairs(Ui.scenes[Chapter][Scene].objects) do
+		if Btnui.buttons[Chapter .. "-" .. Scene .. "-" .. obj.name] then
+			Btnui.buttons[Chapter .. "-" .. Scene .. "-" .. obj.name].sleep = false
 		end
 	end
 end
@@ -62,6 +70,20 @@ function love.mousepressed(mx, my)
 end
 
 function love.draw()
+	love.graphics.draw(
+		Background["Bedroom"],
+		Ww / 2,
+		Wh / 2,
+		0,
+		math.max(Background["Bedroom"]:getWidth(), Background["Bedroom"]:getHeight())
+			/ Background["Bedroom"]:getWidth()
+			* Ui.scale,
+		math.max(Background["Bedroom"]:getWidth(), Background["Bedroom"]:getHeight())
+			/ Background["Bedroom"]:getHeight()
+			* Ui.scale,
+		Background["Bedroom"]:getWidth() / 2,
+		Background["Bedroom"]:getHeight() / 2
+	)
+	Ui:draw()
 	Btnui:draw()
-	--Ui:draw()
 end
