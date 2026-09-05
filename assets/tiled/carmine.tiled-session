@@ -1,5 +1,5 @@
 {
-    "activeFile": "Story.tmx",
+    "activeFile": "Story.tmj",
     "expandedProjectPaths": [
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
@@ -12,23 +12,49 @@
                 "y": 336.140350877193
             }
         },
-        "Story.tmx": {
+        "Story.js": {
             "expandedGroupLayers": [
-                6,
-                7,
-                4
+                47
             ],
             "expandedObjectLayers": [
+                4,
                 6,
-                5,
                 2,
-                4
+                5
             ],
-            "scale": 2,
+            "scale": 8,
+            "selectedLayer": 30,
+            "viewCenter": {
+                "x": 399.0625,
+                "y": 381
+            }
+        },
+        "Story.tmj": {
+            "expandedGroupLayers": [
+                47
+            ],
+            "scale": 3.55078125,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 332.25,
-                "y": 241.5
+                "x": 400.0528052805281,
+                "y": 299.37073707370735
+            }
+        },
+        "Story.tmx": {
+            "expandedGroupLayers": [
+                47
+            ],
+            "expandedObjectLayers": [
+                5,
+                4,
+                6,
+                2
+            ],
+            "scale": 8,
+            "selectedLayer": 35,
+            "viewCenter": {
+                "x": 399.0625,
+                "y": 381
             }
         },
         "introduction.tmx": {
@@ -54,16 +80,18 @@
     "last.exportedFilePath": "C:/Users/aaooi/Documents/Lasagna/LOVE2D/Miss-Carmines-Laboratory/assets/tiled",
     "map.height": 450,
     "map.lastUsedExportFilter": "Lua files (*.lua)",
-    "map.lastUsedFormat": "tmx",
+    "map.lastUsedFormat": "js",
     "map.tileHeight": 1,
     "map.tileWidth": 1,
     "map.width": 800,
     "openFiles": [
-        "Story.tmx"
+        "Story.tmj"
     ],
     "project": "carmine.tiled-project",
-    "property.type": "list",
+    "property.type": "bool",
     "recentFiles": [
+        "Story.tmj",
+        "Story.js",
         "Story.tmx",
         "C:/Users/aaooi/Documents/Lasagna/LOVE2D/COLOROSO/assets/tiled/ui-map.tmx",
         "main-menu.tmx",

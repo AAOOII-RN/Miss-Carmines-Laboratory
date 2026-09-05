@@ -1,6 +1,6 @@
 function love.load()
 	print("Game Starting...")
-	Font = love.graphics.setNewFont("assets/fonts/font.ttf", 100)
+	Font = love.graphics.setNewFont("assets/fonts/font.ttf", 30)
 	Ww, Wh = love.graphics.getDimensions()
 	Ticker = 0
 
@@ -26,7 +26,7 @@ function love.load()
 	local bg_path = "assets/img/Background/"
 	Gradient = love.graphics.newImage("assets/img/gradient.png")
 	Background = {
-		["Bedroom"] = love.graphics.newImage(bg_path .. "Bedroom.png"),
+		["Dining Room"] = love.graphics.newImage(bg_path .. "Dining Room.png"),
 		["Laboratory"] = love.graphics.newImage(bg_path .. "Laboratory.png"),
 	}
 end
@@ -70,19 +70,22 @@ function love.mousepressed(mx, my)
 end
 
 function love.draw()
+	local background = Ui.scenes[Chapter][Scene].properties
 	love.graphics.draw(
-		Background["Bedroom"],
-		Ww / 2,
-		Wh / 2,
+		Background[background["Background"]],
+		Ww / 2 + background["Bg offset"][1] * Ui.scale,
+		Wh / 2 + background["Bg offset"][2] * Ui.scale,
 		0,
-		math.max(Background["Bedroom"]:getWidth(), Background["Bedroom"]:getHeight())
-			/ Background["Bedroom"]:getWidth()
-			* Ui.scale,
-		math.max(Background["Bedroom"]:getWidth(), Background["Bedroom"]:getHeight())
-			/ Background["Bedroom"]:getHeight()
-			* Ui.scale,
-		Background["Bedroom"]:getWidth() / 2,
-		Background["Bedroom"]:getHeight() / 2
+		math.max(
+			Ww / Background[background["Background"]]:getWidth(),
+			Wh / Background[background["Background"]]:getHeight()
+		),
+		math.max(
+			Ww / Background[background["Background"]]:getWidth(),
+			Wh / Background[background["Background"]]:getHeight()
+		),
+		Background[background["Background"]]:getWidth() / 2,
+		Background[background["Background"]]:getHeight() / 2
 	)
 	Ui:draw()
 	Btnui:draw()

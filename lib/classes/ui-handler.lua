@@ -69,53 +69,39 @@ function UI_HANDLER:draw()
 			love.graphics.setColor(1, 1, 1, 1)
 		end
 		if obj.shape == "text" then
-			--[[
-			local text = self.scenes[Chapter][Scene].textSettings
-			love.graphics.printf(
-				text.text,
-				text.x * Ui.scale + Ui.gapX,
-				text.y * Ui.scale + Ui.gapY,
-				text.width * (100 / text.pixelsize / Ui.scale) * Ui.scale,
-				text.halign,
-				0,
-				text.pixelsize / 100 * Ui.scale
-			)
-      ]]
-			local speaker = self.elements[Chapter][Scene].text["Speaker"]
-			local dialogue = self.elements[Chapter][Scene].text["Dialogue"]
+			for _, obj in pairs(self.elements[Chapter][Scene].text) do
+				love.graphics.setColor(1, 1, 1)
+				if obj.name == "Speaker" and obj.text == "Miss Carmine" then
+					love.graphics.setColor(1, 0.3411, 0.3411)
+				elseif obj.name == "Speaker" and obj.text == "#1430" or obj.text == "???" then
+					love.graphics.setColor(1, 0.8901, 0.7019)
+				end
+				love.graphics.printf(
+					obj.text,
+					obj.x * Ui.scale + Ui.gapX,
+					obj.y * Ui.scale + Ui.gapY,
+					obj.width * (30 / obj.pixelsize / Ui.scale) * Ui.scale,
+					obj.halign,
+					0,
+					obj.pixelsize / 30 * Ui.scale
+				)
+				if obj.text ~= "" then
+					love.graphics.draw(
+						Gradient,
+						Ww / 2,
+						Wh / 2,
+						0,
+						math.max(Gradient:getWidth(), Gradient:getHeight()) / Gradient:getWidth() * Ui.scale,
+						math.max(Gradient:getWidth(), Gradient:getHeight()) / Gradient:getHeight() * Ui.scale,
+						Gradient:getWidth() / 2,
+						Gradient:getHeight() / 2
+					)
+				end
+			end
+
 			local line = self.elements[Chapter][Scene].line
-			love.graphics.setColor(love.math.colorFromBytes(unpack(speaker.color)))
-			love.graphics.printf(
-				speaker.text,
-				speaker.x * Ui.scale + Ui.gapX,
-				speaker.y * Ui.scale + Ui.gapY,
-				speaker.width * (100 / speaker.pixelsize / Ui.scale) * Ui.scale,
-				speaker.halign,
-				0,
-				speaker.pixelsize / 100 * Ui.scale
-			)
-			love.graphics.setColor(love.math.colorFromBytes(unpack(dialogue.color)))
-			love.graphics.printf(
-				dialogue.text,
-				dialogue.x * Ui.scale + Ui.gapX,
-				dialogue.y * Ui.scale + Ui.gapY,
-				dialogue.width * (100 / dialogue.pixelsize / Ui.scale) * Ui.scale,
-				dialogue.halign,
-				0,
-				dialogue.pixelsize / 100 * Ui.scale
-			)
 			love.graphics.setColor(0, 0, 0, 1)
 			love.graphics.line(60 * Ui.scale, line * Ui.scale, Ww - 60 * Ui.scale, line * Ui.scale)
-			love.graphics.draw(
-				Gradient,
-				Ww / 2,
-				Wh / 2,
-				0,
-				math.max(Gradient:getWidth(), Gradient:getHeight()) / Gradient:getWidth() * Ui.scale,
-				math.max(Gradient:getWidth(), Gradient:getHeight()) / Gradient:getHeight() * Ui.scale,
-				Gradient:getWidth() / 2,
-				Gradient:getHeight() / 2
-			)
 		end
 	end
 end
