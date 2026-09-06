@@ -3702,7 +3702,7 @@
          "name":"Laboratory",
          "opacity":1,
          "type":"group",
-         "visible":true,
+         "visible":false,
          "x":0,
          "y":0
         }, 
@@ -6066,7 +6066,7 @@
                                 }]
                         }],
                  "type":"objectgroup",
-                 "visible":true,
+                 "visible":false,
                  "x":0,
                  "y":0
                 }, 
@@ -6164,7 +6164,7 @@
                                 }]
                         }],
                  "type":"objectgroup",
-                 "visible":true,
+                 "visible":false,
                  "x":0,
                  "y":0
                 }, 
@@ -6190,8 +6190,8 @@
                             },
                          "type":"",
                          "visible":true,
-                         "width":240,
-                         "x":280,
+                         "width":160,
+                         "x":320,
                          "y":304
                         }, 
                         {
@@ -6458,7 +6458,7 @@
                                 }]
                         }],
                  "type":"objectgroup",
-                 "visible":true,
+                 "visible":false,
                  "x":0,
                  "y":0
                 }, 
@@ -6556,7 +6556,7 @@
                                 }]
                         }],
                  "type":"objectgroup",
-                 "visible":true,
+                 "visible":false,
                  "x":0,
                  "y":0
                 }, 
@@ -6654,7 +6654,7 @@
                                 }]
                         }],
                  "type":"objectgroup",
-                 "visible":true,
+                 "visible":false,
                  "x":0,
                  "y":0
                 }, 
@@ -6752,7 +6752,7 @@
                                 }]
                         }],
                  "type":"objectgroup",
-                 "visible":true,
+                 "visible":false,
                  "x":0,
                  "y":0
                 }, 
@@ -6850,7 +6850,7 @@
                                 }]
                         }],
                  "type":"objectgroup",
-                 "visible":true,
+                 "visible":false,
                  "x":0,
                  "y":0
                 }, 
@@ -6948,7 +6948,7 @@
                                 }]
                         }],
                  "type":"objectgroup",
-                 "visible":true,
+                 "visible":false,
                  "x":0,
                  "y":0
                 }, 
@@ -7046,7 +7046,7 @@
                                 }]
                         }],
                  "type":"objectgroup",
-                 "visible":true,
+                 "visible":false,
                  "x":0,
                  "y":0
                 }, 
@@ -7144,7 +7144,7 @@
                                 }]
                         }],
                  "type":"objectgroup",
-                 "visible":true,
+                 "visible":false,
                  "x":0,
                  "y":0
                 }, 
@@ -7242,7 +7242,7 @@
                                 }]
                         }],
                  "type":"objectgroup",
-                 "visible":true,
+                 "visible":false,
                  "x":0,
                  "y":0
                 }, 
@@ -7340,7 +7340,7 @@
                                 }]
                         }],
                  "type":"objectgroup",
-                 "visible":true,
+                 "visible":false,
                  "x":0,
                  "y":0
                 }, 
@@ -7438,7 +7438,7 @@
                                 }]
                         }],
                  "type":"objectgroup",
-                 "visible":true,
+                 "visible":false,
                  "x":0,
                  "y":0
                 }, 
@@ -7535,14 +7535,14 @@
                                 }]
                         }],
                  "type":"objectgroup",
-                 "visible":true,
+                 "visible":false,
                  "x":0,
                  "y":0
                 }],
          "name":"Introduction",
          "opacity":1,
          "type":"group",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 

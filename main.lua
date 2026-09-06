@@ -14,8 +14,8 @@ function love.load()
 	Ui = require("lib.classes.ui-handler")()
 
 	-- Story
-	Chapter = "Dining Room"
-	Scene = "Scene 1"
+	Chapter = "Laboratory 3"
+	Scene = 1
 
 	-- states
 	OnState = "Blank"
@@ -35,12 +35,6 @@ function Switch()
 	print("Switched to: " .. OnState)
 	for _, obj in pairs(Btnui.buttons) do
 		obj.sleep = true
-	end
-	print(Ui.scenes[Chapter][Scene].objects)
-	for _, obj in pairs(Ui.scenes[Chapter][Scene].objects) do
-		if Btnui.buttons[Chapter .. "-" .. Scene .. "-" .. obj.name] then
-			Btnui.buttons[Chapter .. "-" .. Scene .. "-" .. obj.name].sleep = false
-		end
 	end
 end
 
@@ -70,23 +64,32 @@ function love.mousepressed(mx, my)
 end
 
 function love.draw()
-	local background = Ui.scenes[Chapter][Scene].properties
+	local background = "Dining Room"
 	love.graphics.draw(
-		Background[background["Background"]],
-		Ww / 2 + background["Bg offset"][1] * Ui.scale,
-		Wh / 2 + background["Bg offset"][2] * Ui.scale,
+		Background[background],
+		Ww / 2,
+		Wh / 2,
 		0,
-		math.max(
-			Ww / Background[background["Background"]]:getWidth(),
-			Wh / Background[background["Background"]]:getHeight()
-		),
-		math.max(
-			Ww / Background[background["Background"]]:getWidth(),
-			Wh / Background[background["Background"]]:getHeight()
-		),
-		Background[background["Background"]]:getWidth() / 2,
-		Background[background["Background"]]:getHeight() / 2
+		math.max(Ww / Background[background]:getWidth(), Wh / Background[background]:getHeight()),
+		math.max(Ww / Background[background]:getWidth(), Wh / Background[background]:getHeight()),
+		Background[background]:getWidth() / 2,
+		Background[background]:getHeight() / 2
 	)
+	if Story[Chapter][Scene][1] ~= "" then
+		love.graphics.setColor(0, 0, 0, 1)
+		love.graphics.line(60 * Ui.scale, 332 * Ui.scale, Ww - 60 * Ui.scale, 332 * Ui.scale)
+		love.graphics.draw(
+			Gradient,
+			Ww / 2,
+			Wh / 2,
+			0,
+			math.max(Ww / Gradient:getWidth(), Wh / Gradient:getHeight()),
+			math.max(Ww / Gradient:getWidth(), Wh / Gradient:getHeight()),
+			Gradient:getWidth() / 2,
+			Gradient:getHeight() / 2
+		)
+	end
+
 	Ui:draw()
 	Btnui:draw()
 end
