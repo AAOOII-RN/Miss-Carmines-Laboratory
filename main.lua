@@ -14,7 +14,7 @@ function love.load()
 	Ui = require("lib.classes.ui-handler")()
 
 	-- Story
-	Chapter = "Laboratory 3"
+	Chapter = "Laboratory 2"
 	Scene = 1
 
 	-- states
@@ -26,8 +26,13 @@ function love.load()
 	local bg_path = "assets/img/Background/"
 	Gradient = love.graphics.newImage("assets/img/gradient.png")
 	Background = {
-		["Dining Room"] = love.graphics.newImage(bg_path .. "Dining Room.png"),
+		["Dining table"] = love.graphics.newImage(bg_path .. "Dining table.png"),
 		["Laboratory"] = love.graphics.newImage(bg_path .. "Laboratory.png"),
+		["Bloodied hallway"] = love.graphics.newImage(bg_path .. "Bloodied hallway.png"),
+		["Hallway"] = love.graphics.newImage(bg_path .. "Hallway.png"),
+		["Laboratory floor"] = love.graphics.newImage(bg_path .. "Laboratory floor.png"),
+		["Test room"] = love.graphics.newImage(bg_path .. "Test room.png"),
+		["Bedroom"] = love.graphics.newImage(bg_path .. "Bedroom.png"),
 	}
 end
 
@@ -64,7 +69,7 @@ function love.mousepressed(mx, my)
 end
 
 function love.draw()
-	local background = "Dining Room"
+	local background = Story[Chapter][Scene][3]
 	love.graphics.draw(
 		Background[background],
 		Ww / 2,
