@@ -43,7 +43,6 @@ local function switchChapter(chapter)
 end
 
 function ACTIONS:mousepressed(mx, my)
-	-- Chapter: Introduction
 	if Btnui:isHovered("Introduction-19-Dining Table...", mx, my) then
 		switchChapter("Dining table")
 	end

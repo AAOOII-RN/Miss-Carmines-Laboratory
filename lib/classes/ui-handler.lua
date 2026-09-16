@@ -29,7 +29,7 @@ function UI_HANDLER:draw()
 				)
 				love.graphics.setColor(1, 1, 1, 1)
 				love.graphics.printf(
-					obj[2],
+					string.sub(obj[2], 0, Typewriter),
 					67 * Ui.scale + Ui.gapX,
 					338 * Ui.scale + Ui.gapY,
 					664 * (30 / 12 / Ui.scale) * Ui.scale,

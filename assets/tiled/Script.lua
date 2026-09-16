@@ -86,11 +86,6 @@ return {
 			[=[Laboratory]=],
 		},
 		{
-			[=[Miss Carmine]=],
-			[=["Test"]=],
-			[=[Laboratory]=],
-		},
-		{
 			[=[]=],
 			[=["OPTION"]=],
 			[=[Laboratory]=],
