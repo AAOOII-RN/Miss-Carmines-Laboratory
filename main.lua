@@ -4,6 +4,10 @@ function love.load()
 	Ww, Wh = love.graphics.getDimensions()
 	Ticker = 0
 
+	-- Story
+	Chapter = "Introduction"
+	Scene = 1
+
 	-- modules
 	Object = require("lib.modules.classic")
 	Btnui = require("lib.modules.btnui")()
@@ -12,10 +16,7 @@ function love.load()
 
 	-- classes
 	Ui = require("lib.classes.ui-handler")()
-
-	-- Story
-	Chapter = "Laboratory 2"
-	Scene = 1
+	Act = require("lib.classes.actions")()
 
 	-- states
 	OnState = "Blank"
@@ -34,10 +35,10 @@ function love.load()
 		["Test room"] = love.graphics.newImage(bg_path .. "Test room.png"),
 		["Bedroom"] = love.graphics.newImage(bg_path .. "Bedroom.png"),
 	}
+	print(#Story["Dining table"])
 end
 
-function Switch()
-	print("Switched to: " .. OnState)
+function CheckBtnui()
 	for _, obj in pairs(Btnui.buttons) do
 		obj.sleep = true
 	end
@@ -60,12 +61,30 @@ end
 function love.update(dt)
 	Ticker = Ticker + dt
 
+	if Scene > #Story[Chapter] then
+		Scene = #Story[Chapter]
+	elseif Scene < 1 then
+		Scene = 1
+	end
+
+	Act:update(dt)
 	Sm:update(dt)
 end
 
 function love.mousepressed(mx, my)
+	Act:mousepressed(mx, my)
 	Sm:mousepressed(mx, my)
 	Ui:mousepressed(mx, my)
+end
+
+function love.keypressed(key)
+	if key == "right" then
+		Scene = Scene + 1
+	elseif key == "left" then
+		Scene = Scene - 1
+	end
+
+	Act:keypressed(key)
 end
 
 function love.draw()
@@ -80,6 +99,7 @@ function love.draw()
 		Background[background]:getWidth() / 2,
 		Background[background]:getHeight() / 2
 	)
+	love.graphics.setColor(1, 1, 1)
 	if Story[Chapter][Scene][1] ~= "" then
 		love.graphics.setColor(0, 0, 0, 1)
 		love.graphics.line(60 * Ui.scale, 332 * Ui.scale, Ww - 60 * Ui.scale, 332 * Ui.scale)
@@ -95,6 +115,7 @@ function love.draw()
 		)
 	end
 
+	Act:draw()
 	Ui:draw()
 	Btnui:draw()
 end

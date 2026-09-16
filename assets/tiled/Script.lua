@@ -85,6 +85,16 @@ return {
 			[=["You can't go outside yet, I can't guarantee your safety. However, would you like to eat by the  table or rest with me by my bedroom?"]=],
 			[=[Laboratory]=],
 		},
+		{
+			[=[Miss Carmine]=],
+			[=["Test"]=],
+			[=[Laboratory]=],
+		},
+		{
+			[=[]=],
+			[=["OPTION"]=],
+			[=[Laboratory]=],
+		},
 	},
 	["Dining table"] = {
 		{
@@ -200,6 +210,11 @@ return {
 		{
 			[=[#1430]=],
 			[=[She quickly stood up and went behind me. Then, she lifts my robe and I heard an audible gasp from her. Did something happen on my back?]=],
+			[=[Dining table]=],
+		},
+		{
+			[=[]=],
+			[=["OPTION"]=],
 			[=[Dining table]=],
 		},
 	},
@@ -347,6 +362,11 @@ return {
 		{
 			[=[#1430]=],
 			[=[She pulled my robe aside and froze. She just stood there, completely motionless, as if she had witnessed a rotting body.]=],
+			[=[Bedroom]=],
+		},
+		{
+			[=[]=],
+			[=["OPTION"]=],
 			[=[Bedroom]=],
 		},
 	},
@@ -541,6 +561,11 @@ return {
 			[=[I find it cute because on one corner is a golden retriever with its weary eyes exaggerated telling me to give it my all and be fair.]=],
 			[=[Test room]=],
 		},
+		{
+			[=[]=],
+			[=["OPTION"]=],
+			[=[Laboratory]=],
+		},
 	},
 	["Laboratory 2"] = {
 		{
@@ -657,6 +682,11 @@ return {
 			[=[???]=],
 			[=[Then, I fainted once again.]=],
 			[=[Bloodied hallway]=],
+		},
+		{
+			[=[]=],
+			[=["OPTION"]=],
+			[=[Laboratory]=],
 		},
 	},
 	["Laboratory 3"] = {
@@ -875,8 +905,6 @@ return {
 			[=[In my mind, I debate, should I either risk my sanity to endure another excruciating pain or deny her pleading remarks. Either way, neither would receive us a content outcome.]=],
 			[=[Laboratory]=],
 		},
-	},
-	["Strawberry gelato"] = {
 		{
 			[=[#1430]=],
 			[=[If I find a four-leaf clover in a field, would I find a five-leaf clover afterwards? If I roll 6 dice, and perfectly land 6 on all of them, would I expect another perfectly land 6 on all of them?]=],
@@ -887,6 +915,13 @@ return {
 			[=[She says I'm a miracle out of her 1429 attempts, would I risk injecting myself that suspicious liquid and expect no consequences? I've decided, I've hardened my resolve.]=],
 			[=[Laboratory]=],
 		},
+		{
+			[=[]=],
+			[=["OPTION"]=],
+			[=[Laboratory]=],
+		},
+	},
+	["Strawberry gelato"] = {
 		{
 			[=[#1430]=],
 			[=["My love, I've had enough."]=],
@@ -1194,16 +1229,6 @@ return {
 		},
 	},
 	["Succumbing to the probability"] = {
-		{
-			[=[#1430]=],
-			[=[If I find a four-leaf clover in a field, would I find a five-leaf clover afterwards? If I roll 6 dice, and perfectly land 6 on all of them, would I expect another perfectly land 6 on all of them?]=],
-			[=[Laboratory]=],
-		},
-		{
-			[=[#1430]=],
-			[=[She says I'm a miracle out of her 1429 attempts, would I risk injecting myself that suspicious liquid and expect no consequences? I've decided, I've hardened my resolve.]=],
-			[=[Laboratory]=],
-		},
 		{
 			[=[#1430]=],
 			[=["Fine,"]=],

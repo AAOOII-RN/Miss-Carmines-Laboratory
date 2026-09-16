@@ -1,7 +1,7 @@
 local BLANK = {}
 
 function BLANK:enter()
-	Switch()
+	CheckBtnui()
 end
 
 return BLANK

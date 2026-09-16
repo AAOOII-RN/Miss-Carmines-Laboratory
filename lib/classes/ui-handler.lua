@@ -1,19 +1,13 @@
 local UI_HANDLER = Object:extend()
 
 function UI_HANDLER:new()
-	Story = require("assets.tiled.Story")
+	Story = require("assets.tiled.Script")
 	self.scale = math.min((Wh * 1.7777) / 800, (Ww * 0.5625) / 450)
 	self.gapX = Ww / 2 - 800 * self.scale / 2
 	self.gapY = Wh / 2 - 450 * self.scale / 2
 end
 
-function UI_HANDLER:mousepressed(mx, my)
-	Scene = Scene + 1
-
-	if Scene >= #Story[Chapter] then
-		Scene = 1
-	end
-end
+function UI_HANDLER:mousepressed(mx, my) end
 
 function UI_HANDLER:draw()
 	for scene, obj in pairs(Story[Chapter]) do

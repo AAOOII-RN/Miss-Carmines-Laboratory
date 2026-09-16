@@ -31,13 +31,13 @@
         },
         "Story.tmj": {
             "expandedGroupLayers": [
-                7
+                6
             ],
             "scale": 2,
-            "selectedLayer": 65,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 346.25,
-                "y": 233
+                "x": 407.25,
+                "y": 260
             }
         },
         "Story.tmx": {
