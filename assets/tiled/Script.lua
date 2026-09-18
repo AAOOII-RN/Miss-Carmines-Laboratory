@@ -82,7 +82,7 @@ return {
 		},
 		{
 			[=[Miss Carmine]=],
-			[=["You can't go outside yet, I can't guarantee your safety. However, would you like to eat by the  table or rest with me by my bedroom?"]=],
+			[=["You can't go outside yet, I can't guarantee your safety. However, would you like to eat by the dining table or rest with me by my bedroom?"]=],
 			[=[Laboratory]=],
 		},
 		{
@@ -458,7 +458,7 @@ return {
 		},
 		{
 			[=[???]=],
-			[=["Y-your back — your skin was melting. It was full of gore. The blood oozing out from your flesh mixing with your melting skin. but, I patched it up, using a part from a homunculus before you."]=],
+			[=["Y-your back — your skin was melting. It was full of gore. The blood oozing out from your flesh mixing with your melting skin. but, I patched it up, using a part from a homuncu1us before you."]=],
 			[=[Laboratory]=],
 		},
 		{
@@ -559,7 +559,7 @@ return {
 		{
 			[=[]=],
 			[=["OPTION"]=],
-			[=[Laboratory]=],
+			[=[Test room]=],
 		},
 	},
 	["Laboratory 2"] = {
