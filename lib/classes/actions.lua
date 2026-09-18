@@ -72,8 +72,22 @@ function ACTIONS:update(dt)
 	if Chapter == "Laboratory 2" then
 		if Scene == 1 then
 			self.finishTest.sleep = true
-			Img.testPaper.show = 0
-			Flux.to(Img.damptest, 3, { y = 0, show = 1 }):ease("backout")
+			Flux.to(Img.testPaper, 0.5, { show = 0 })
+			Flux.to(Img.damptest, 2, { y = 0, show = 1 }):ease("backout")
+		end
+		if Scene == 3 then
+			Flux.to(Img.damptest, 0.5, { show = 0 })
+			Img.bloodyhand.show = 1
+		end
+		if Scene == 4 then
+			Img.bloodyhand.index = 2
+		end
+		if Scene == 6 then
+			Flux.to(Img.bloodyhand, 15, { index = 10, shaking = 20 }):ease("expoout")
+			Flux.to(Img.redVignette, 15, { show = 1 }):ease("expoout")
+		end
+		if Scene == 9 then
+			Flux.to(Img.bloodyhand, 1, { y = 1500 - Wh, show = 0 }):ease("expoout")
 		end
 	end
 end

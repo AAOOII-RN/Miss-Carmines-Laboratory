@@ -5,13 +5,14 @@ function love.load()
 	Ticker = 0
 
 	-- Story
-	Chapter = "Laboratory"
-	Scene = 38
+	Chapter = "Introduction"
+	Scene = 1
 	Typewriter = 0
 	Handlifted = 0
 	EnableClickNextScene = true
 	Handwriting = {}
 	MovingHandwriting = {}
+	Blink = 0
 
 	-- modules
 	Flux = require("lib.modules.flux")
@@ -30,7 +31,7 @@ function love.load()
 	Act = require("lib.classes.actions")()
 
 	-- images
-	local bg_path = "assets/img/Background/"
+	local bg_path = "assets/img/background/"
 	Gradient = love.graphics.newImage("assets/img/gradient.png")
 	Img = {
 		carmine = {
@@ -43,7 +44,7 @@ function love.load()
 		},
 		goo = {
 			img = love.graphics.newImage("assets/img/goo.png"),
-			show = 1,
+			show = 0,
 		},
 		redVignette = {
 			img = love.graphics.newImage("assets/img/red vignette.png"),
@@ -59,6 +60,25 @@ function love.load()
 			img = love.graphics.newImage("assets/img/damptest.png"),
 			show = 0,
 			y = 1500 - Wh,
+		},
+		bloodyhand = {
+			img = love.graphics.newArrayImage({
+				"assets/img/hand/hand.png",
+				"assets/img/hand/hand1.png",
+				"assets/img/hand/hand2.png",
+				"assets/img/hand/hand3.png",
+				"assets/img/hand/hand4.png",
+				"assets/img/hand/hand5.png",
+				"assets/img/hand/hand6.png",
+				"assets/img/hand/hand7.png",
+				"assets/img/hand/hand8.png",
+				"assets/img/hand/hand9.png",
+				"assets/img/hand/hand10.png",
+			}),
+			show = 0,
+			index = 1,
+			shaking = 0,
+			y = 0,
 		},
 	}
 
@@ -153,12 +173,13 @@ end
 function love.draw()
 	local background = Story[Chapter][Scene][3]
 
+	love.graphics.setColor(1, 1, 1, 1)
 	love.graphics.push("transform")
 	love.graphics.translate((Ww / 2 - love.mouse.getX()) * 0.04, (Wh / 2 - love.mouse.getY()) * 0.02)
 	love.graphics.draw(
 		Background[background],
-		Ww / 2,
-		Wh / 2,
+		Ww / 2 + math.random() * Img.bloodyhand.shaking / 5,
+		Wh / 2 + math.random() * Img.bloodyhand.shaking / 5,
 		0,
 		1.2 * math.max(Ww / Background[background]:getWidth(), Wh / Background[background]:getHeight()),
 		1.2 * math.max(Ww / Background[background]:getWidth(), Wh / Background[background]:getHeight()),
@@ -178,6 +199,32 @@ function love.draw()
 		Carmine:getWidth() / 2,
 		Carmine:getHeight() / 2
 	)
+	local dampTest = Img.damptest.img
+	love.graphics.setColor(1, 1, 1, Img.damptest.show)
+	love.graphics.draw(
+		dampTest,
+		Ww / 2,
+		Wh / 2 + Img.damptest.y,
+		0,
+		0.3 * Ui.scale,
+		0.3 * Ui.scale,
+		dampTest:getWidth() / 2,
+		dampTest:getHeight() / 2
+	)
+
+	local bloodyhand = Img.bloodyhand.img
+	love.graphics.setColor(1, 1, 1, Img.bloodyhand.show)
+	love.graphics.drawLayer(
+		bloodyhand,
+		Img.bloodyhand.index,
+		Ww / 2 + math.random() * Img.bloodyhand.shaking,
+		Wh / 2 + math.random() * Img.bloodyhand.shaking + Img.bloodyhand.y * Ui.scale,
+		0,
+		1 * Ui.scale,
+		1 * Ui.scale,
+		bloodyhand:getWidth() / 2,
+		bloodyhand:getHeight() / 2
+	)
 	love.graphics.pop()
 
 	local Goo = Img.goo.img
@@ -191,6 +238,24 @@ function love.draw()
 		math.max(Ww / Goo:getWidth(), Wh / Goo:getHeight()) * Ui.scale * 2,
 		Goo:getWidth() / 2,
 		Goo:getHeight() / 2
+	)
+
+	local redVignette = Img.redVignette.img
+	love.graphics.setColor(
+		0.7,
+		0.7,
+		0.7,
+		Img.redVignette.show * (0.9 + 0.1 * math.sin(Ticker * Img.redVignette.show * 4) ^ 2)
+	)
+	love.graphics.draw(
+		redVignette,
+		Ww / 2,
+		Wh / 2,
+		0,
+		math.max(Ww / Goo:getWidth(), Wh / Goo:getHeight()) * Ui.scale,
+		math.max(Ww / Goo:getWidth(), Wh / Goo:getHeight()) * Ui.scale,
+		redVignette:getWidth() / 2,
+		redVignette:getHeight() / 2
 	)
 
 	local testPaper = Img.testPaper.img
@@ -211,19 +276,6 @@ function love.draw()
 		end
 	end
 
-	local dampTest = Img.damptest.img
-	love.graphics.setColor(1, 1, 1, Img.damptest.show)
-	love.graphics.draw(
-		dampTest,
-		Ww / 2,
-		Wh / 2 + Img.damptest.y,
-		0,
-		0.17 * Ui.scale,
-		0.17 * Ui.scale,
-		dampTest:getWidth() / 2,
-		dampTest:getHeight() / 2
-	)
-
 	love.graphics.setColor(1, 1, 1)
 	if Story[Chapter][Scene][1] ~= "" then
 		love.graphics.setColor(0, 0, 0, 1)
@@ -239,7 +291,8 @@ function love.draw()
 			Gradient:getHeight() / 2
 		)
 	end
-	love.graphics.print(Chapter .. ": " .. Scene)
+	love.graphics.setColor(0, 0, 0, math.abs(math.sin(Blink * math.pi)))
+	love.graphics.rectangle("fill", 0, 0, Ww, Wh)
 
 	Act:draw()
 	Ui:draw()

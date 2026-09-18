@@ -1,0 +1,8 @@
+name = "Miss Carmine Laboratory"
+default_targets = ["win32", "win64"]
+build_directory = "miss-carmine-laboratory"
+
+love_files = [
+    "::git-ls-tree::",
+    "-*/.*",
+]

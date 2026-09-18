@@ -594,31 +594,6 @@ return {
 			[=[Laboratory floor]=],
 		},
 		{
-			[=[]=],
-			[=[]=],
-			[=[Laboratory floor]=],
-		},
-		{
-			[=[???]=],
-			[=[The burn rapidly intensifies. I attempted to clean it up using the robe I'm wearing.]=],
-			[=[Laboratory floor]=],
-		},
-		{
-			[=[]=],
-			[=[]=],
-			[=[Laboratory floor]=],
-		},
-		{
-			[=[???]=],
-			[=[I rubbed my robe against the wound but the blood instantly adhered onto my robe. The stream of blood lessened but it spread outwardly across the hem of the robe.]=],
-			[=[Laboratory floor]=],
-		},
-		{
-			[=[???]=],
-			[=[I wanted to pull the sticky robe off, but I fear the pain would be unbearable.]=],
-			[=[Test room]=],
-		},
-		{
 			[=[???]=],
 			[=[I felt another burning sensation on my shoulder. Unlike the arm, the wound rapidly opened up, like fire spreading on paper. This torture I'm feeling, it's already unbearable, similar to last time.]=],
 			[=[Test room]=],
@@ -631,11 +606,6 @@ return {
 		{
 			[=[???]=],
 			[=[Miss Carmine, alerted by the noise, dashed towards me and held me together to stop me from moving.]=],
-			[=[Test room]=],
-		},
-		{
-			[=[???]=],
-			[=[]=],
 			[=[Test room]=],
 		},
 		{
