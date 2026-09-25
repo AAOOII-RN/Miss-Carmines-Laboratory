@@ -44,7 +44,7 @@ function love.load()
 		},
 		goo = {
 			img = love.graphics.newImage("assets/img/goo.png"),
-			show = 0,
+			show = 1,
 		},
 		redVignette = {
 			img = love.graphics.newImage("assets/img/red vignette.png"),
@@ -171,7 +171,15 @@ function love.wheelmoved(x, y)
 end
 
 function love.draw()
-	local background = Story[Chapter][Scene][3]
+	local chapterStory = Story and Story[Chapter]
+	local currentScene = chapterStory and chapterStory[Scene]
+	local background = currentScene and currentScene[3]
+
+	if not background or not Background[background] then
+		love.graphics.setColor(1, 1, 1, 1)
+		love.graphics.print("Missing scene data: " .. tostring(Chapter) .. " / " .. tostring(Scene), 24, 24)
+		return
+	end
 
 	love.graphics.setColor(1, 1, 1, 1)
 	love.graphics.push("transform")
@@ -291,6 +299,7 @@ function love.draw()
 			Gradient:getHeight() / 2
 		)
 	end
+
 	love.graphics.setColor(0, 0, 0, math.abs(math.sin(Blink * math.pi)))
 	love.graphics.rectangle("fill", 0, 0, Ww, Wh)
 

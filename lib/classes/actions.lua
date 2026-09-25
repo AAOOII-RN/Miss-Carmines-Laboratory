@@ -62,7 +62,40 @@ function ACTIONS:update(dt)
 			Flux.to(Img.carmine, 1, { y = 0, scale = 1 }):ease("expoout")
 		end
 	end
+	if Chapter == "Dining table" then
+		if Scene == 1 then
+			Img.carmine.show = 0
+		end
+		if Scene == 3 then
+			Flux.to(Img.carmine, 1.5, { show = 1 }):ease("expoout")
+		end
+	end
 	if Chapter == "Laboratory" then
+		if Scene == 1 then
+			Img.carmine.show = 0
+		end
+		if Scene == 6 then
+			Img.goo.show = 1
+		end
+		if Scene == 9 then
+			Flux.to(Img.carmine, 1.5, { show = 1 }):ease("expoout")
+			Flux.to(Img.goo, 1, { show = 0 })
+		end
+		if Scene == 32 then
+			Img.carmine.show = 0
+		end
+		if Scene == 33 then
+			Flux.to(Img.carmine, 1.5, { show = 1 }):ease("expoout")
+		end
+		if Scene == 34 then
+			Img.carmine.show = 0
+		end
+		if Scene == 35 then
+			Img.carmine.show = 0
+		end
+		if Scene == 36 then
+			Flux.to(Img.carmine, 1.5, { show = 1 }):ease("expoout")
+		end
 		if Scene == 39 then
 			self.finishTest.sleep = false
 			Flux.to(Img.testPaper, 2, { show = 1 }):ease("expoout")
@@ -72,6 +105,7 @@ function ACTIONS:update(dt)
 	if Chapter == "Laboratory 2" then
 		if Scene == 1 then
 			self.finishTest.sleep = true
+			Img.carmine.show = 0
 			Flux.to(Img.testPaper, 0.5, { show = 0 })
 			Flux.to(Img.damptest, 2, { y = 0, show = 1 }):ease("backout")
 		end
@@ -87,18 +121,50 @@ function ACTIONS:update(dt)
 			Flux.to(Img.redVignette, 15, { show = 1 }):ease("expoout")
 		end
 		if Scene == 9 then
+			Flux.to(Img.carmine, 1.5, { show = 1 }):ease("expoout")
 			Flux.to(Img.bloodyhand, 1, { y = 1500 - Wh, show = 0 }):ease("expoout")
+		end
+		if Scene == 11 then
+			Img.carmine.show = 0
+		end
+		if Scene == 15 then
+			Flux.to(Img.goo, 1, { show = 1 })
+		end
+	end
+	if Chapter == "Laboratory 3" then
+		if Scene == 1 then
+			Img.carmine.show = 1
+			Img.bloodyhand.shaking = 0
+			Img.redVignette.show = 0
+		end
+		if Scene == 2 then
+			Flux.to(Img.goo, 1, { show = 0 })
+		end
+	end
+	if Chapter == "Strawberry gelato" then
+		if Scene == 26 then
+			Flux.to(Img.carmine, 1, { y = 800 }):ease("expoout")
+		end
+		if Scene == 27 then
+			Img.carmine.show = 0
 		end
 	end
 end
 
 local function switchChapter(chapter)
+	if not Story[chapter] then
+		print("Unknown chapter:", tostring(chapter))
+		return
+	end
+
 	Chapter = chapter
 	Scene = 1
 	if VoiceOvers[Chapter] then
 		for id, v in pairs(VoiceOvers[Chapter]) do
-			if string.find(Story[Chapter][Scene][2]:lower():gsub("[%p]", ""), string.lower(id):lower()) then
-				love.audio.play(v)
+			if Story[Chapter][Scene] and Story[Chapter][Scene][2] then
+				if string.find(Story[Chapter][Scene][2]:lower():gsub("[%p]", ""), string.lower(id):lower()) then
+					love.audio.play(v)
+				end
 			end
 		end
 	end
@@ -128,15 +194,9 @@ function ACTIONS:mousepressed(mx, my)
 		switchChapter("Laboratory 3")
 	end
 
-	--[[
 	if Chapter == "Laboratory 3" and Scene == #Story["Laboratory 3"] then
-		switchChapter("Succumbing to the probability")
+		switchChapter("Strawberry gelato")
 	end
-	if Btnui:isHovered("Laboratory 3-" .. #Story["Laboratory 3"] .. "-Refuse the syringe...", mx, my) then
-		switchChapter("Strawberry Gelato")
-	end
-  ]]
-
 	if Chapter == "Laboratory" and Scene == 39 then
 		Handlifted = Handlifted + 1
 		Handwriting[Handlifted] = {}
